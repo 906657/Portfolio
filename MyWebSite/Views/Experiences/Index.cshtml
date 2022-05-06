@@ -1,0 +1,29 @@
+﻿@model IEnumerable<MyWebSite.Models.Experience>
+
+@{
+    ViewData["Title"] = "Experience";
+    ViewData["Banner"] = "Work Experience";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<partial name="_Banner" />
+<div class="main">
+    <div class="row justify-content-md-center">
+        @foreach (var item in Model)
+        {
+            <div class="row item justify-content-md-center mb-5 lh-base">
+                <div class="col-3">
+                    <ul class="list-unstyled ps-4">
+                        <li class="fs-5">@Html.DisplayFor(modelItem => item.Title)</li>
+                        <li class="fs-6 text-black-50">@Html.DisplayFor(modelItem => item.Location)</li>
+                        <li class="fs-6 text-black-50">@Html.DisplayFor(modelItem => item.Duration)</li>
+                        <li><img class="img-fluid shadow" src="/pic/cases/Logo-SIT.png" /></li>
+                    </ul>
+                </div>
+                <div class="col-6 pe-4">@Html.DisplayFor(modelItem => item.Description)</div>
+            </div>
+
+        }
+
+    </div>
+</div>
+

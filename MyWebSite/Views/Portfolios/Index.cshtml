@@ -1,0 +1,34 @@
+﻿@model IEnumerable<MyWebSite.Models.Portfolio>
+
+@{
+    ViewData["Title"] = "Portfolio";
+    ViewData["banner"] = "Previous Projects";
+}
+<partial name="_Banner" />
+<div class="main">
+    <div class="row justify-content-md-center">
+        <div class="col-9">
+            <div class="p-4 text-black bg-light lh-base mb-5 text-black-50"></div>
+
+        @foreach (var item in Model)
+        {
+
+            <div class="row item justify-content-md-center mb-5 lh-base">
+                <div class="col-3">
+                    <ul class="list-unstyled">
+                        <li><img class="img-fluid shadow" src="@item.Pic" /></li>
+                        <li class="fs-6 lh-lg text-center">@Html.DisplayFor(modelItem => item.Title)</li>
+                    </ul>
+                </div>
+                <div class="col-7">
+                    @Html.DisplayFor(modelItem => item.Description)
+                    <div>
+                        <a asp-action="Details" asp-route-id="@item?.Id">
+                            Click for detail
+                        </a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
